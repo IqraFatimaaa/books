@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letters of the Shuhada | Idara Sirat ul Ishq</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Nunito:wght@400;600&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #1d1d1f; --maroon: #7a1f2b; --gold: #b8933f; --paper: #faf6f0; }
+    body { font-family: "Nunito", sans-serif; color: var(--ink); background: var(--paper); }
+
+    .topbar { background: #000; padding: 14px 0; }
+    .topbar a { color: #d9d9d9; text-decoration: none; margin-right: 22px; font-size: .95rem; letter-spacing: .04em; }
+    .topbar a:hover, .topbar a.active { color: #fff; }
+
+    .page-hero {
+      position: relative; overflow: hidden; text-align: center; padding: 110px 0 90px;
+      background: linear-gradient(180deg, #f3e9dc 0%, var(--paper) 100%);
+    }
+    .page-hero h1 {
+      font-family: "Cormorant Garamond", serif; font-weight: 700;
+      font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 0 0 14px; position: relative; z-index: 2;
+    }
+    .page-hero p.lead { color: #5b4f47; position: relative; z-index: 2; max-width: 34em; margin: 0 auto; }
+    .page-hero .ur-sub {
+      font-family: "Noto Nastaliq Urdu", serif; font-size: 1.5rem; line-height: 2.2;
+      color: var(--maroon); position: relative; z-index: 2; margin-top: 6px;
+    }
+
+    .diamond {
+      position: absolute; top: 50%; left: 50%; width: 340px; height: 340px;
+      border: 1.5px solid var(--gold); transform: translate(-50%, -50%) rotate(45deg);
+      opacity: .5; z-index: 1; animation: spin 40s linear infinite;
+    }
+    .diamond.two { width: 250px; height: 250px; border-color: var(--maroon); opacity: .35; animation-direction: reverse; animation-duration: 30s; }
+    @keyframes spin { to { transform: translate(-50%, -50%) rotate(405deg); } }
+
+    .rise { opacity: 0; transform: translateY(26px); animation: rise .9s ease forwards; }
+    .d1 { animation-delay: .15s; } .d2 { animation-delay: .4s; } .d3 { animation-delay: .6s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    #letters { padding: 70px 0 100px; }
+    .ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 50px; }
+    .ornament span { height: 1px; width: 70px; background: var(--gold); }
+    .ornament i { width: 11px; height: 11px; background: var(--gold); transform: rotate(45deg); display: block; }
+
+    /* quotes flow in two columns; each card keeps its natural height so nothing looks misaligned */
+    .letters-grid { column-count: 2; column-gap: 28px; }
+    @media (max-width: 900px) { .letters-grid { column-count: 1; } }
+
+    .letter {
+      break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 28px;
+      position: relative; background: #fff; border-radius: 16px; padding: 46px 34px 26px;
+      border-top: 3px solid var(--gold); box-shadow: 0 6px 24px rgba(60,30,20,.07);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .letter:hover { transform: translateY(-8px); box-shadow: 0 16px 34px rgba(60,30,20,.14); }
+    .letter::before {
+      content: "\201D"; position: absolute; top: 4px; right: 22px;
+      font-family: "Cormorant Garamond", serif; font-size: 5.5rem; line-height: 1; color: var(--gold); opacity: .45;
+    }
+    .letter .ur { font-family: "Noto Nastaliq Urdu", serif; direction: rtl; text-align: right; }
+    .letter h4 { font-weight: 700; font-size: 1.3rem; line-height: 2.2; color: var(--maroon); margin: 0 0 6px; }
+    .letter p { font-size: 1.08rem; line-height: 2.5; margin: 0 0 12px; color: #2a2a2c; }
+    .letter p.strong { font-weight: 700; }
+    .letter .by {
+      margin: 18px 0 0; padding-top: 14px; border-top: 1px solid #eee3d2;
+      font-size: 1rem; line-height: 2.2; color: var(--maroon); font-weight: 700;
+    }
+
+    .cta { background: #000; color: #fff; text-align: center; padding: 80px 0; }
+    .cta h3 { font-family: "Cormorant Garamond", serif; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 26px; }
+    .cta a.btn {
+      background: var(--gold); color: #1d1d1f; border-radius: 40px; padding: 13px 38px; font-weight: 600;
+      transition: transform .25s ease, background .25s ease;
+    }
+    .cta a.btn:hover { background: #d0aa55; transform: translateY(-3px); }
+
+    footer { background: #000; color: #d9d9d9; padding: 30px 0; text-align: center; border-top: 1px solid #222; font-size: .95rem; }
+    footer a { color: #fff; margin: 0 10px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .diamond { animation: none !important; }
+      .rise { animation: none !important; opacity: 1; transform: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    <a href="letters.html" class="active">Letters</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <header class="page-hero">
+    <div class="diamond"></div>
+    <div class="diamond two"></div>
+    <div class="container">
+      <h1 class="rise d1">Letters of the Shuhada</h1>
+      <p class="lead rise d2">In their own words: advice, dreams and last messages from those who gave everything.</p>
+      <div class="ur-sub rise d3" lang="ur" dir="rtl">شہداء کے پیغامات</div>
+    </div>
+  </header>
+
+  <section id="letters">
+    <div class="container">
+      <div class="ornament reveal"><span></span><i></i><span></span></div>
+
+      <div class="letters-grid">
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <p>خیال رکھو کہ دل کو دنیا سے نہ باندھو……</p>
+          <p>کیونکہ دنیا گزرگاہ ہے جتنا زیادہ اس سے وابستہ ہوگے اتنا ہی زیادہ گرفتار ہو جاؤ گے……</p>
+          <p>لہٰذا جب تک ممکن ہو، مادیات کے بجائے معنویات کے پیچھے رہو……</p>
+          <div class="by">شہید رضا رحیمی</div>
+        </article>
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <h4>وصیتِ شہید</h4>
+          <p>میری اُن لڑکیوں سے، جو اپنی تصاویر سوشل میڈیا پر لگاتی ہیں، یہ گزارش ہے کہ آپ کا یہ عمل امامِ زمانہ (عج) کو خون کے آنسو رُلانے کا سبب بنتا ہے۔</p>
+          <p>میری اس وصیت اور درخواست کو سننے کے بعد اس پر عمل ضرور کرنا، کیونکہ ہم تو اس لیے جا رہے ہیں تاکہ آپ عورتوں کی عزت، عصمت اور آبرو کا دفاع کر سکیں۔</p>
+          <p>حضرت فاطمہ زہرا سلام اللہ علیہا کی مانند بنیں۔</p>
+          <div class="by">سلام بر شہید مہدی رعد</div>
+        </article>
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <h4>مصیبت سیدہ زھراء سہ</h4>
+          <p class="strong">سردار قاسم سلیمانی فرماتے تھے:</p>
+          <p>میں نے رات خواب میں دیکھا!</p>
+          <p>وه سب کجھ جو مادرم سیدہ فاطمہ زھراء سہ سے متعلق ہے۔ ہر وہ بات جو ممبر پر بیان کیا جاتی ہے جیسے دروازے کا واقعہ، آگ لگانے کا واقعہ وغیرہ۔</p>
+          <p>یہ سب میں نے عالم رؤیا (خواب) میں دیکھا۔</p>
+          <p>قربان اس پاکیزہ روح پر۔</p>
+          <div class="by">سلام بر شہید سردار قاسم سلیمانی</div>
+        </article>
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <h4>حسینی ہمسفر</h4>
+          <p>جب شہید مہدی باکری محاذ کی طرف جا رہے تھے تو اپنی ہمسر سے کہا:</p>
+          <p class="strong">اگر میں نہ لوٹا، تو صبر کرو گی؟</p>
+          <p>ہمسر نے جواب دیا: 'میں وہ عورت ہوں جس نے تمہیں خدا کی راہ میں دیا ہے، اپنی خواہش کے لیے نہیں۔'</p>
+          <p>میری محبت تم سے ہے، مگر میرا عشق راہِ حسینؑ سے ہے۔</p>
+          <p>اگر تم نہ لوٹے، تو میں تمہارے لہو سے اپنے بیٹے کی تربیت کروں گی۔ تاکہ ایک اور مجاہد تیار ہو، تمہاری راہ پر۔</p>
+          <div class="by">شہید مہدی باکری</div>
+        </article>
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <h4>دنیا</h4>
+          <p class="strong">شہید حسین معز فرماتے تھے:</p>
+          <p>"ہم نے دنیا کی زندگی کو سنجیدگی سے لیا ہوا ہے اور قیامت کو مذاق سمجھا ہوا ہے؛</p>
+          <p>کاش اس سے پہلے کہ قیامت ہمیں جگائے، ہم خود بیدار ہو جائیں"</p>
+          <div class="by">سلام بر شہید حسین معز غلامی</div>
+        </article>
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <h4>مناجات شہدا</h4>
+          <p class="strong">اے میرے اللہ! مجھے عاشق بنا دے۔۔</p>
+          <p>اگر میں اپنی آرزو پا لوں، اور میرے دل سے دنیا کی محبت نکل جائے، تو جان لو۔۔۔۔۔۔ کہ نالائق بندے بھی اگر اللہ چاہے تو بلند ترین درجے پا سکتے ہیں۔۔۔۔۔</p>
+          <div class="by">سلام بر شہید امیر حاج امینی</div>
+        </article>
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <h4>بِسـم ِ ربـــــِّـ الشــُّـهـداءِ والصِّـدیقیــن</h4>
+          <p>شھید کے دوست کہتے ہیں: ایک شب میں نے خواب میں محمد رضا کو دیکھا اور اس سے پوچھا:</p>
+          <p class="strong">محمد رضا حضرت زھرا سے جو تم اتنی محبت کا دم بھرتے تھے تو بتاؤ اس عقیدت سے تمہیں کیا حاصل ہوا؟</p>
+          <p>اس نے کہا: میں نے ان کے فرزند مھدی عج کی آغوش میں جان دی یہی میرے لیے کافی ہے۔</p>
+          <div class="by">شھید محمد رضا تورجی زادہ</div>
+        </article>
+
+        <article class="letter ur reveal" lang="ur" dir="rtl">
+          <h4>منشور شھید عماد مغنیه</h4>
+          <p>"یہ انقلاب اسلامی ہم سب کا انقلاب ہے، یہی انقلاب ہم سب کی مشکلات کا حل ہے، ہم سب کو وہاں سے آنے والے حکم کا انتظار کرنا چاہیے"</p>
+          <div class="by">شھید عماد مغنیه</div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container reveal">
+      <h3>Read their lives. Walk their path.</h3>
+      <a href="index.html#our-publications" class="btn">Browse Our Books</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Idara Sirat ul Ishq
+      <span class="mx-2">|</span>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://whatsapp.com/channel/0029VbCAZYWFHWpvfBddiT28" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </footer>
+
+  <script>
+    var items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add('in'); });
+    }
+  </script>
+</body>
+</html>

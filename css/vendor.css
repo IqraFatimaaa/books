@@ -11,7 +11,7 @@
   min-height: 350px;
 }
 
-.jarallax>.jarallax-img {
+.jarallax > .jarallax-img {
   position: absolute;
   object-fit: cover;
   top: 0;

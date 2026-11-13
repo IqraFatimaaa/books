@@ -181,13 +181,13 @@
                   <a class="nav-link me-4 active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="#about">About</a>
+                  <a class="nav-link me-4" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-4" href="shop.html">Shop</a>
           </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="#contact">Contact</a>
+                  <a class="nav-link me-4" href="contact.html">Contact</a>
                 </li>
                 
               </ul>
@@ -359,10 +359,74 @@
   </div>
 </section>
     
+<style>
+  /* ---------- Cards: equal size, aligned ---------- */
+  #our-publications .book-card {
+    height: 100%; display: flex; flex-direction: column;
+    background: #fff; border: 0; border-radius: 18px; padding: 12px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.09);
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  #our-publications .book-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,.18); }
 
-   
+  #our-publications .book-card .cover { position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px; background: #eee; }
+  #our-publications .book-card .cover img {
+    width: 100%; height: 100% !important; object-fit: cover; display: block; border-radius: 0;
+    transition: transform .7s ease;
+  }
+  #our-publications .book-card:hover .cover img { transform: scale(1.1); }
 
-   <section id="our-publications" class="padding-large">
+  #our-publications .price-tag {
+    position: absolute; top: 12px; right: 12px; background: #000; color: #f5c542;
+    font-weight: 700; padding: 6px 14px; border-radius: 30px; font-size: .95rem;
+  }
+
+  #our-publications .book-card .card-body {
+    display: flex; flex-direction: column; flex: 1; padding: 18px 8px 8px; text-align: center;
+  }
+  #our-publications .book-card .card-title {
+    font-size: 1.25rem; line-height: 1.9; margin: 0 0 6px; color: #7a1f2b;
+  }
+  #our-publications .book-card p {
+    flex: 1; font-size: .95rem; line-height: 1.9; color: #555; margin: 0 0 16px;
+  }
+
+  /* ---------- WhatsApp button: green, full width, always at the bottom ---------- */
+  #our-publications .order-btn {
+    display: flex !important; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; margin: 0 !important; padding: 13px 16px !important;
+    background: linear-gradient(135deg, #25d366, #128c7e) !important;
+    color: #fff !important; border: 0 !important; border-radius: 50px !important;
+    font-weight: 700; text-decoration: none; letter-spacing: .02em;
+    animation: waPulse 2.4s infinite;
+    transition: transform .25s ease, filter .25s ease;
+  }
+  #our-publications .order-btn:hover { transform: scale(1.04); filter: brightness(1.08); }
+  #our-publications .order-btn svg { flex-shrink: 0; }
+  @keyframes waPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.55); }
+    70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+  }
+
+  /* ---------- Entrance animation ---------- */
+  #our-publications .book-card { opacity: 0; }
+  #our-publications .book-card.in { animation: bookIn .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes bookIn {
+    from { opacity: 0; transform: translateY(70px) scale(.94); }
+    to   { opacity: 1; transform: none; }
+  }
+  #our-publications .col-lg-3:nth-child(4n+2) .book-card.in { animation-delay: .12s; }
+  #our-publications .col-lg-3:nth-child(4n+3) .book-card.in { animation-delay: .24s; }
+  #our-publications .col-lg-3:nth-child(4n+4) .book-card.in { animation-delay: .36s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #our-publications .book-card { opacity: 1; }
+    #our-publications .book-card.in, #our-publications .order-btn { animation: none; }
+  }
+</style>
+
+<section id="our-publications" class="padding-large">
   <div class="container">
     <div class="section-title mb-4 text-center">
       <h3 class="mb-4" lang="ur" dir="rtl">ادارہ صراط العشق کی مطبوعات</h3>
@@ -370,129 +434,113 @@
     <div class="row">
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/sanoober.jpeg" class="img-fluid rounded-4" alt="صنوبر کے درخت کا راز"></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">صنوبر کے درخت کا راز</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">شہید زینب کمائی کی زندگی نامہ</p>
-              <h3 class="secondary-font text-primary">Rs: 450</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="صنوبر کے درخت کا راز" data-price="450">
+          <div class="cover">
+            <img src="imagess/sanoober.jpeg" class="img-fluid" alt="صنوبر کے درخت کا راز">
+            <span class="price-tag">Rs 450</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">صنوبر کے درخت کا راز</h3>
+            <p lang="ur" dir="rtl">شہید زینب کمائی کی زندگی نامہ</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/najam.jpeg" class="img-fluid rounded-4" alt="والنجم اذا ھوی"></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">والنجم اذا ھوی</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">شہید جہاد مغنیہ کی حالات و واقعات پر مبنی یادوں کا مجموعہ</p>
-              <h3 class="secondary-font text-primary">Rs: 450</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="والنجم اذا ھوی" data-price="450">
+          <div class="cover">
+            <img src="imagess/najam.jpeg" class="img-fluid" alt="والنجم اذا ھوی">
+            <span class="price-tag">Rs 450</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">والنجم اذا ھوی</h3>
+            <p lang="ur" dir="rtl">شہید جہاد مغنیہ کی حالات و واقعات پر مبنی یادوں کا مجموعہ</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/ch.jpeg" class="img-fluid rounded-4" alt="چشم مجنون"></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">چشم مجنون</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">شہید ابراہیم ہمت کی حالات و واقعات کا گلدستہ</p>
-              <h3 class="secondary-font text-primary">Rs: 550</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="چشم مجنون" data-price="550">
+          <div class="cover">
+            <img src="imagess/ch.jpeg" class="img-fluid" alt="چشم مجنون">
+            <span class="price-tag">Rs 550</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">چشم مجنون</h3>
+            <p lang="ur" dir="rtl">شہید ابراہیم ہمت کی حالات و واقعات کا گلدستہ</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/sahi.jpeg" class="img-fluid rounded-4" alt="صحیفۃ الشھداء"></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">صحیفۃ الشھداء</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">شہداء مدافعان حرم کی داستانیں</p>
-              <h3 class="secondary-font text-primary">Rs: 500</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="صحیفۃ الشھداء" data-price="500">
+          <div class="cover">
+            <img src="imagess/sahi.jpeg" class="img-fluid" alt="صحیفۃ الشھداء">
+            <span class="price-tag">Rs 500</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">صحیفۃ الشھداء</h3>
+            <p lang="ur" dir="rtl">شہداء مدافعان حرم کی داستانیں</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/khoon.jpeg" class="img-fluid rounded-4" alt="خون خواہان رہبر"></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">خون خواہان رہبر</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">عشق رہبر میں جان کا پروانہ دینے والے جوانوں کا تعارف اور حیات نامہ</p>
-              <h3 class="secondary-font text-primary">Rs: 700</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="خون خواہان رہبر" data-price="700">
+          <div class="cover">
+            <img src="imagess/khoon.jpeg" class="img-fluid" alt="خون خواہان رہبر">
+            <span class="price-tag">Rs 700</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">خون خواہان رہبر</h3>
+            <p lang="ur" dir="rtl">عشق رہبر میں جان کا پروانہ دینے والے جوانوں کا تعارف اور حیات نامہ</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/za.jpeg" class="img-fluid rounded-4" alt="ذکریاتی مع ابی"></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">ذکریاتی مع ابی (میرے والد کے ساتھ میری یادیں)</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">مہدی حسن نصر اللہ کی اپنے والد کے ساتھ گزرے لمحات کا مجموعہ</p>
-              <h3 class="secondary-font text-primary">Rs: 350</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="ذکریاتی مع ابی (میرے والد کے ساتھ میری یادیں)" data-price="350">
+          <div class="cover">
+            <img src="imagess/za.jpeg" class="img-fluid" alt="ذکریاتی مع ابی">
+            <span class="price-tag">Rs 350</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">ذکریاتی مع ابی (میرے والد کے ساتھ میری یادیں)</h3>
+            <p lang="ur" dir="rtl">مہدی حسن نصر اللہ کی اپنے والد کے ساتھ گزرے لمحات کا مجموعہ</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/mah.jpeg" class="img-fluid rounded-4" alt="مہر مادر" style="height: 400px; width: 500px; "></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">مہر مادر</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">شہداء کا حضرت فاطمہ زھراء سے توسل و عقیدت کے ایمان افروز واقعات و معجزات</p>
-              <h3 class="secondary-font text-primary">Rs: 350</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="مہر مادر" data-price="350">
+          <div class="cover">
+            <img src="imagess/mah.jpeg" class="img-fluid" alt="مہر مادر">
+            <span class="price-tag">Rs 350</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">مہر مادر</h3>
+            <p lang="ur" dir="rtl">شہداء کا حضرت فاطمہ زھراء سے توسل و عقیدت کے ایمان افروز واقعات و معجزات</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card position-relative">
-          <a href="#"><img src="imagess/yaaa.jpeg" class="img-fluid rounded-4" style="height: 400px; width: 500px;"  alt="شہید رضا تورجی زادہ"></a>
-          <div class="card-body p-0">
-            <a href="#"><h3 class="card-title pt-4 m-0" lang="ur" dir="rtl">شہید رضا تورجی زادہ</h3></a>
-            <div class="card-text">
-              <p class="mt-2" lang="ur" dir="rtl">عاشق حضرت فاطمہ زھراء شہید تورجی زادہ کی خاطرات و زندگی نامہ</p>
-              <h3 class="secondary-font text-primary">Rs: 550</h3>
-              <div class="d-flex flex-wrap mt-3">
-                <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3"><h5 class="text-uppercase m-0">Add to Cart</h5></a>
-              </div>
-            </div>
+        <div class="card position-relative book-card" data-title="شہید رضا تورجی زادہ" data-price="550">
+          <div class="cover">
+            <img src="imagess/yaaa.jpeg" class="img-fluid" alt="شہید رضا تورجی زادہ">
+            <span class="price-tag">Rs 550</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title" lang="ur" dir="rtl">شہید رضا تورجی زادہ</h3>
+            <p lang="ur" dir="rtl">عاشق حضرت فاطمہ زھراء شہید تورجی زادہ کی خاطرات و زندگی نامہ</p>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
           </div>
         </div>
       </div>
@@ -500,6 +548,38 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Put your WhatsApp number here: country code + number, digits only (example: 923001234567)
+  var WHATSAPP_NUMBER = "92XXXXXXXXXX";
+
+  document.querySelectorAll("#our-publications .book-card").forEach(function (card) {
+    var msg = "Assalamu alaikum, I would like to order this book:\n" +
+              card.dataset.title + "\nPrice: Rs " + card.dataset.price;
+    card.querySelector(".order-btn").href =
+      "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg);
+  });
+
+  var cards = document.querySelectorAll("#our-publications .book-card");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(function (c) { io.observe(c); });
+  } else {
+    cards.forEach(function (c) { c.classList.add("in"); });
+  }
+</script>
+   
+
+  
+
+
+
+
+
    
 
    <section id="customers-reviews" class="position-relative padding-large"
@@ -590,89 +670,38 @@
   </div>
 </section>
 
-<section id="about" class="padding-large">
-  <div class="container">
-    <div class="section-title mb-4 text-center">
-      <h3 class="mb-4">About Us</h3>
-    </div>
-    <div class="row">
-      <div class="col-md-8 offset-md-2 text-center">
-        <p>Idara Sirat ul Ishq is a publishing house and bookstore dedicated to the lives of the Shuhada. We bring their stories to Urdu readers through biographies, memories and accounts of faith and sacrifice, including the Shuhada who defended the holy shrines (Madafean-e-Haram) and those devoted to the Ahl al-Bayt (a.s.).</p>
-        <p>We believe a martyr is shaped by a lifetime of prayer, sincerity and love, and not only by the moment of martyrdom. That is why our books show how the Shuhada lived: their character, their relationships and their devotion to Hazrat Fatima Zahra (s.a.) and to the path of truth.</p>
-        <p>Every book is chosen to inspire readers, young and old, to know these heroes and carry their example into their own lives.</p>
-      </div>
-    </div>
-  </div>
-</section>
+
   
 
-  <section id="contact">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h3>Contact Us</h3>
-    </div>
-    <div class="row">
-      <div class="col-md-2 offset-md-3">
-        <figure class="instagram-item position-relative rounded-3">
-          <a href="https://www.instagram.com/sirat_ul_ishq_pakistan" target="_blank" rel="noopener" class="image-link position-relative">
-            <div class="icon-overlay position-absolute d-flex justify-content-center">
-              <svg class="instagram">
-                <use xlink:href="#instagram"></use>
-              </svg>
-            </div>
-            <img src="images/insta-item1.jpg" alt="Sirat ul Ishq on Instagram" class="img-fluid rounded-3 insta-image">
-          </a>
-        </figure>
-      </div>
-      <div class="col-md-2">
-        <figure class="instagram-item position-relative rounded-3">
-          <a href="https://www.facebook.com/siratulishq" target="_blank" rel="noopener" class="image-link position-relative">
-            <div class="icon-overlay position-absolute d-flex justify-content-center">
-              <svg class="facebook">
-                <use xlink:href="#facebook"></use>
-              </svg>
-            </div>
-            <img src="images/insta-item2.jpg" alt="Sirat ul Ishq on Facebook" class="img-fluid rounded-3 insta-image">
-          </a>
-        </figure>
-      </div>
-      <div class="col-md-2">
-        <figure class="instagram-item position-relative rounded-3">
-          <a href="https://whatsapp.com/channel/0029VbCAZYWFHWpvfBddiT28" target="_blank" rel="noopener" class="image-link position-relative">
-            <div class="icon-overlay position-absolute d-flex justify-content-center">
-              <svg class="whatsapp" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                <path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/>
-              </svg>
-            </div>
-            <img src="images/insta-item3.jpg" alt="Sirat ul Ishq WhatsApp channel" class="img-fluid rounded-3 insta-image">
-          </a>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
+ 
 
-  <footer id="footer" class="padding-large">
+<style>
+  #footer-bottom {
+    display: none;
+  }
+</style>
+
+<footer id="footer" class="padding-large" style="background-color:#000; color:#d9d9d9; padding-top:50px; padding-bottom:20px;">
   <div class="container">
     <div class="row">
       <div class="footer-top-area">
         <div class="row d-flex flex-wrap justify-content-between">
           <div class="col-lg-3 col-sm-6 pb-3">
             <div class="footer-menu">
-              <img src="imagess/logooo.png" alt="logo" class="img-fluid mb-2">
-              <p>Idara Sirat ul Ishq publishes books on the lives, memories and spiritual journeys of the Shuhada. Read their stories and walk their path.</p>
+              <img src="imagess/logooo.png" alt="logo" class="img-fluid mb-2" style="filter:invert(1); max-width:130px;">
+              <p style="color:#d9d9d9;">Idara Sirat ul Ishq publishes books on the lives, memories and spiritual journeys of the Shuhada. Read their stories and walk their path.</p>
               <div class="social-links">
                 <ul class="d-flex list-unstyled">
                   <li>
-                    <a href="https://www.facebook.com/siratulishq" target="_blank" rel="noopener">
-                      <svg class="facebook">
+                    <a href="https://www.facebook.com/siratulishq" target="_blank" rel="noopener" style="color:#d9d9d9;">
+                      <svg class="facebook" style="fill:#d9d9d9;">
                         <use xlink:href="#facebook" />
                       </svg>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/sirat_ul_ishq_pakistan" target="_blank" rel="noopener">
-                      <svg class="instagram">
+                    <a href="https://www.instagram.com/sirat_ul_ishq_pakistan" target="_blank" rel="noopener" style="color:#d9d9d9;">
+                      <svg class="instagram" style="fill:#d9d9d9;">
                         <use xlink:href="#instagram" />
                       </svg>
                     </a>
@@ -683,29 +712,28 @@
           </div>
           <div class="col-lg-2 col-sm-6 pb-3">
             <div class="footer-menu text-capitalize">
-              <h5 class="widget-title pb-2">Quick Links</h5>
+              <h5 class="widget-title pb-2" style="color:#fff;">Quick Links</h5>
               <ul class="menu-list list-unstyled text-capitalize">
                 <li class="menu-item mb-1">
-                  <a href="#">Home</a>
+                  <a href="#" style="color:#d9d9d9;">Home</a>
                 </li>
                 <li class="menu-item mb-1">
-                  <a href="#about">About</a>
+                  <a href="#about-us" style="color:#d9d9d9;">About</a>
                 </li>
                 <li class="menu-item mb-1">
-                  <a href="#">Shop</a>
+                  <a href="#our-publications" style="color:#d9d9d9;">Shop</a>
                 </li>
                 <li class="menu-item mb-1">
-                  <a href="#contact">Contact</a>
+                  <a href="#instagram" style="color:#d9d9d9;">Contact</a>
                 </li>
               </ul>
             </div>
           </div>
-          
           <div class="col-lg-3 col-sm-6 pb-3">
             <div class="footer-menu contact-item">
-              <h5 class="widget-title text-capitalize pb-2">Contact Us</h5>
-              <p>Questions about a book or an order? Message us on <a href="https://www.instagram.com/sirat_ul_ishq_pakistan" target="_blank" rel="noopener" class="text-decoration-underline">Instagram</a> or <a href="https://www.facebook.com/siratulishq" target="_blank" rel="noopener" class="text-decoration-underline">Facebook</a>.</p>
-              <p>For new books and updates, <a href="https://whatsapp.com/channel/0029VbCAZYWFHWpvfBddiT28" target="_blank" rel="noopener" class="text-decoration-underline">follow our WhatsApp channel</a>.</p>
+              <h5 class="widget-title text-capitalize pb-2" style="color:#fff;">Contact Us</h5>
+              <p style="color:#d9d9d9;">Questions about a book or an order? Message us on <a href="https://www.instagram.com/sirat_ul_ishq_pakistan" target="_blank" rel="noopener" class="text-decoration-underline" style="color:#fff;">Instagram</a> or <a href="https://www.facebook.com/siratulishq" target="_blank" rel="noopener" class="text-decoration-underline" style="color:#fff;">Facebook</a>.</p>
+              <p style="color:#d9d9d9;">For new books and updates, <a href="https://whatsapp.com/channel/0029VbCAZYWFHWpvfBddiT28" target="_blank" rel="noopener" class="text-decoration-underline" style="color:#fff;">follow our WhatsApp channel</a>.</p>
             </div>
           </div>
         </div>
@@ -713,7 +741,11 @@
     </div>
   </div>
 </footer>
-    <hr>
+    <style>
+  #footer ~ * {
+    display: none !important;
+  }
+</style>
    
 
     <script src="js/jquery-1.11.0.min.js"></script>

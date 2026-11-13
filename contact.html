@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Idara Sirat ul Ishq</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #1d1d1f; --maroon: #7a1f2b; --gold: #b8933f; --paper: #faf6f0; }
+    body { font-family: "Nunito", sans-serif; color: var(--ink); background: var(--paper); }
+
+    .topbar { background: #000; padding: 14px 0; }
+    .topbar a { color: #d9d9d9; text-decoration: none; margin-right: 22px; font-size: .95rem; letter-spacing: .04em; }
+    .topbar a:hover { color: #fff; }
+
+    .page-hero {
+      position: relative; overflow: hidden; text-align: center; padding: 110px 0 90px;
+      background: linear-gradient(180deg, #f3e9dc 0%, var(--paper) 100%);
+    }
+    .page-hero h1 {
+      font-family: "Cormorant Garamond", serif; font-weight: 700;
+      font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 0 0 14px; position: relative; z-index: 2;
+    }
+    .page-hero p.lead { color: #5b4f47; position: relative; z-index: 2; max-width: 34em; margin: 0 auto; }
+
+    .diamond {
+      position: absolute; top: 50%; left: 50%; width: 340px; height: 340px;
+      border: 1.5px solid var(--gold); transform: translate(-50%, -50%) rotate(45deg);
+      opacity: .5; z-index: 1; animation: spin 40s linear infinite;
+    }
+    .diamond.two { width: 250px; height: 250px; border-color: var(--maroon); opacity: .35; animation-direction: reverse; animation-duration: 30s; }
+    @keyframes spin { to { transform: translate(-50%, -50%) rotate(405deg); } }
+
+    .rise { opacity: 0; transform: translateY(26px); animation: rise .9s ease forwards; }
+    .d1 { animation-delay: .15s; } .d2 { animation-delay: .4s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+
+    .reveal { opacity: 0; transform: translateY(34px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.s2 { transition-delay: .15s; } .reveal.s3 { transition-delay: .3s; }
+
+    #contact { padding: 80px 0 100px; }
+    .ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 18px; }
+    .ornament span { height: 1px; width: 70px; background: var(--gold); }
+    .ornament i { width: 11px; height: 11px; background: var(--gold); transform: rotate(45deg); display: block; }
+    #contact .intro { text-align: center; max-width: 36em; margin: 0 auto 56px; font-size: 1.1rem; line-height: 1.8; color: #5b4f47; }
+
+    .channel {
+      display: block; text-decoration: none; color: var(--ink); background: #fff; height: 100%;
+      border-radius: 14px; padding: 44px 28px; text-align: center; border-top: 3px solid var(--gold);
+      box-shadow: 0 6px 24px rgba(60,30,20,.07); transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .channel:hover { transform: translateY(-8px); box-shadow: 0 16px 34px rgba(60,30,20,.14); color: var(--ink); }
+    .channel .icon {
+      width: 74px; height: 74px; margin: 0 auto 24px; border-radius: 50%;
+      background: #000; color: var(--gold); display: flex; align-items: center; justify-content: center;
+      transition: background .3s ease, color .3s ease, transform .5s ease;
+    }
+    .channel:hover .icon { background: var(--maroon); color: #fff; transform: rotate(360deg); }
+    .channel .icon svg { width: 32px; height: 32px; }
+    .channel h4 { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 1.7rem; margin-bottom: 8px; }
+    .channel p { color: #5b4f47; margin-bottom: 18px; }
+    .channel .go { font-weight: 600; color: var(--maroon); letter-spacing: .03em; }
+    .channel .go::after { content: " \2192"; display: inline-block; transition: transform .25s ease; }
+    .channel:hover .go::after { transform: translateX(6px); }
+
+    footer { background: #000; color: #d9d9d9; padding: 30px 0; text-align: center; border-top: 1px solid #222; font-size: .95rem; }
+    footer a { color: #fff; margin: 0 10px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .diamond { animation: none !important; }
+      .rise { animation: none !important; opacity: 1; transform: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .channel:hover .icon { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#our-publications">Shop</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <header class="page-hero">
+    <div class="diamond"></div>
+    <div class="diamond two"></div>
+    <div class="container">
+      <h1 class="rise d1">Contact Us</h1>
+      <p class="lead rise d2">We would love to hear from you.</p>
+    </div>
+  </header>
+
+  <section id="contact">
+    <div class="container">
+      <div class="ornament reveal"><span></span><i></i><span></span></div>
+      <p class="intro reveal">Questions about a book or an order? Message us on Instagram or Facebook, and follow our WhatsApp channel for new books and updates.</p>
+
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <a class="channel" href="https://www.instagram.com/sirat_ul_ishq_pakistan" target="_blank" rel="noopener">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+            <h4>Instagram</h4>
+            <p>Photos, new releases and daily updates.</p>
+            <span class="go">Visit our page</span>
+          </a>
+        </div>
+
+        <div class="col-md-4 reveal s2">
+          <a class="channel" href="https://www.facebook.com/siratulishq" target="_blank" rel="noopener">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </div>
+            <h4>Facebook</h4>
+            <p>Message us about books and orders.</p>
+            <span class="go">Visit our page</span>
+          </a>
+        </div>
+
+        <div class="col-md-4 reveal s3">
+          <a class="channel" href="https://whatsapp.com/channel/0029VbCAZYWFHWpvfBddiT28" target="_blank" rel="noopener">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/>
+              </svg>
+            </div>
+            <h4>WhatsApp Channel</h4>
+            <p>Be the first to know about new books.</p>
+            <span class="go">Join the channel</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Idara Sirat ul Ishq
+      <span class="mx-2">|</span>
+      <a href="about.html">About</a>
+      <a href="index.html#our-publications">Shop</a>
+    </div>
+  </footer>
+
+  <script>
+    var items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add('in'); });
+    }
+  </script>
+</body>
+</html>

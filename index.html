@@ -229,7 +229,37 @@
 </style>
 
 <!-- Your original section with only the text changed -->
- <section id="billboard" class="position-relative d-flex align-items-center py-5 bg-light-gray"
+ <style>
+  @media (max-width: 991.98px) {
+    #billboard {
+      height: auto !important;
+      padding-top: 40px !important;
+      padding-bottom: 50px !important;
+    }
+    #billboard .image-holder img {
+      width: auto !important;
+      height: auto !important;
+      max-width: 100% !important;
+      max-height: 380px;
+      object-fit: contain;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    #billboard .swiper-next,
+    #billboard .swiper-prev {
+      display: none !important;
+    }
+    #billboard .banner-content h2 {
+      font-size: 1.9rem;
+    }
+    #billboard .image-holder img {
+      max-height: 320px;
+    }
+  }
+</style>
+
+<section id="billboard" class="position-relative d-flex align-items-center py-5 bg-light-gray"
   style="background-image: url(images/banner-image-bg.jpg); background-size: cover; background-repeat: no-repeat; background-position: center; height: 800px;">
   <div class="position-absolute end-0 pe-0 pe-xxl-5 me-0 me-xxl-5 swiper-next main-slider-button-next">
     <svg class="chevron-forward-circle d-flex justify-content-center align-items-center p-2" width="80" height="80">
@@ -300,6 +330,7 @@
     </div>
   </div>
 </section>
+
 <section id="company-services" class="padding-large pb-0">
   <div class="container">
     <div class="row">
@@ -358,6 +389,16 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
     
 <style>
   /* ---------- Cards: equal size, aligned ---------- */

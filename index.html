@@ -285,7 +285,7 @@
             </div>
             <div class="col-md-6 text-center">
               <div class="image-holder">
-                <img src="imagess/image1.jpg" class="img-fluid" alt="banner" style="width: 500px; height: 600px;">
+                <img src="imagess/fronttt.jpeg" class="img-fluid" alt="banner" style="width: 500px; height: 600px;">
               </div>
             </div>
           </div>
@@ -611,6 +611,217 @@
     cards.forEach(function (c) { io.observe(c); });
   } else {
     cards.forEach(function (c) { c.classList.add("in"); });
+  }
+</script>
+
+
+
+
+<style>
+  #keychains-badges { background: #faf6f0; }
+  #keychains-badges .gift-title { font-family: "Noto Nastaliq Urdu", serif; font-weight: 700; line-height: 2; }
+  #keychains-badges .gift-sub { color: #7a1f2b; letter-spacing: .12em; text-transform: uppercase; font-size: .9rem; margin: 0 0 14px; }
+  #keychains-badges .ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 0 46px; }
+  #keychains-badges .ornament span { height: 1px; width: 70px; background: #b8933f; }
+  #keychains-badges .ornament i { width: 11px; height: 11px; background: #b8933f; transform: rotate(45deg); display: block; }
+
+  #keychains-badges .gift-card {
+    height: 100%; display: flex; flex-direction: column;
+    background: #fff; border: 0; border-radius: 18px; padding: 12px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.09);
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  #keychains-badges .gift-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,.18); }
+
+  #keychains-badges .gift-card .cover { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 12px; background: #eee; }
+  #keychains-badges .gift-card .cover img {
+    width: 100%; height: 100% !important; object-fit: cover; display: block; transition: transform .7s ease;
+  }
+  #keychains-badges .gift-card:hover .cover img { transform: scale(1.1); }
+
+  #keychains-badges .price-tag {
+    position: absolute; top: 12px; right: 12px; background: #000; color: #f5c542;
+    font-weight: 700; padding: 6px 14px; border-radius: 30px; font-size: .95rem;
+  }
+
+  #keychains-badges .gift-card .card-body { display: flex; flex-direction: column; flex: 1; padding: 16px 8px 8px; text-align: center; }
+  #keychains-badges .gift-card .card-title { font-size: 1.2rem; margin: 0 0 14px; color: #7a1f2b; flex: 1; }
+
+  #keychains-badges .order-btn {
+    display: flex !important; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; margin: 0 !important; padding: 13px 16px !important;
+    background: linear-gradient(135deg, #25d366, #128c7e) !important;
+    color: #fff !important; border: 0 !important; border-radius: 50px !important;
+    font-weight: 700; text-decoration: none; letter-spacing: .02em;
+    animation: giftPulse 2.4s infinite; transition: transform .25s ease, filter .25s ease;
+  }
+  #keychains-badges .order-btn:hover { transform: scale(1.04); filter: brightness(1.08); }
+  #keychains-badges .order-btn svg { flex-shrink: 0; }
+  @keyframes giftPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.55); }
+    70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+  }
+
+  #keychains-badges .gift-card { opacity: 0; }
+  #keychains-badges .gift-card.in { animation: giftIn .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes giftIn {
+    from { opacity: 0; transform: translateY(70px) scale(.94); }
+    to   { opacity: 1; transform: none; }
+  }
+  #keychains-badges .col-lg-3:nth-child(4n+2) .gift-card.in { animation-delay: .12s; }
+  #keychains-badges .col-lg-3:nth-child(4n+3) .gift-card.in { animation-delay: .24s; }
+  #keychains-badges .col-lg-3:nth-child(4n+4) .gift-card.in { animation-delay: .36s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #keychains-badges .gift-card { opacity: 1; }
+    #keychains-badges .gift-card.in, #keychains-badges .order-btn { animation: none; }
+  }
+</style>
+
+<section id="keychains-badges" class="padding-large">
+  <div class="container">
+    <div class="section-title mb-4 text-center">
+      <p class="gift-sub">Keychains &amp; Badges</p>
+      <h3 class="mb-3 gift-title" lang="ur" dir="rtl">کی چینز اور بیجز</h3>
+      <div class="ornament"><span></span><i></i><span></span></div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 1" data-price="30">
+          <div class="cover">
+            <img src="imagess/30(1).jpeg" class="img-fluid" alt="Keychain / Badge 1">
+            <span class="price-tag">Rs 30</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 1</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 2" data-price="30">
+          <div class="cover">
+            <img src="imagess/30(2).jpeg" class="img-fluid" alt="Keychain / Badge 2">
+            <span class="price-tag">Rs 30</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 2</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 3" data-price="30">
+          <div class="cover">
+            <img src="imagess/30(3).jpeg" class="img-fluid" alt="Keychain / Badge 3">
+            <span class="price-tag">Rs 30</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 3</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 4" data-price="30">
+          <div class="cover">
+            <img src="imagess/30(4).jpeg" class="img-fluid" alt="Keychain / Badge 4">
+            <span class="price-tag">Rs 30</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 4</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 5" data-price="100">
+          <div class="cover">
+            <img src="imagess/100(1).jpeg" class="img-fluid" alt="Keychain / Badge 5">
+            <span class="price-tag">Rs 100</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 5</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 6" data-price="100">
+          <div class="cover">
+            <img src="imagess/100(2).jpeg" class="img-fluid" alt="Keychain / Badge 6">
+            <span class="price-tag">Rs 100</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 6</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 7" data-price="50">
+          <div class="cover">
+            <img src="imagess/50(1).jpeg" class="img-fluid" alt="Keychain / Badge 7">
+            <span class="price-tag">Rs 50</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 7</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card position-relative gift-card" data-title="Keychain / Badge 8" data-price="50">
+          <div class="cover">
+            <img src="imagess/50(2).jpeg" class="img-fluid" alt="Keychain / Badge 8">
+            <span class="price-tag">Rs 50</span>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Keychain / Badge 8</h4>
+            <a href="#" class="btn-cart order-btn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.45 15.06L2 22l5.1-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.06-1.17.09-1.9-.12a17 17 0 0 1-4.4-2.3 8.9 8.9 0 0 1-2.3-3.4c-.25-.8.05-1.5.5-2 .2-.2.4-.3.55-.3h.4c.13 0 .3-.05.47.35l.65 1.6c.05.12.08.26 0 .4l-.25.4-.4.45c-.12.13-.25.27-.1.52.15.25.67 1.1 1.45 1.8a7 7 0 0 0 2 1.25c.25.12.4.1.55-.07l.8-1c.17-.23.34-.2.57-.12l1.5.72c.23.12.4.18.45.28.06.1.06.58-.2 1.2Z"/></svg><span>Order on WhatsApp</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Uses the number from your books section if it is on the same page; otherwise set it here.
+  var GIFT_WA = (typeof WHATSAPP_NUMBER !== "undefined") ? WHATSAPP_NUMBER : "92XXXXXXXXXX";
+
+  document.querySelectorAll("#keychains-badges .gift-card").forEach(function (card) {
+    var msg = "Assalamu alaikum, I would like to order:\n" +
+              card.dataset.title + "\nPrice: Rs " + card.dataset.price;
+    card.querySelector(".order-btn").href =
+      "https://wa.me/" + GIFT_WA + "?text=" + encodeURIComponent(msg);
+  });
+
+  var giftCards = document.querySelectorAll("#keychains-badges .gift-card");
+  if ("IntersectionObserver" in window) {
+    var giftIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); giftIo.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    giftCards.forEach(function (c) { giftIo.observe(c); });
+  } else {
+    giftCards.forEach(function (c) { c.classList.add("in"); });
   }
 </script>
    
